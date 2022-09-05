@@ -25,7 +25,7 @@ class UserController extends Controller
         $user['password'] = bcrypt(request('password'));
 
         $user->save();
-        return redirect('user')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect('admin/user')->with('success', 'Data Berhasil Ditambahkan');
     }
     function show(User $user)
     {
@@ -44,11 +44,11 @@ class UserController extends Controller
         $user['email'] = request('email');
         if (request('password')) $user['password'] = bcrypt(request('password'));
         $user->save();
-        return redirect('user')->with('success', 'Data Berhasil Diedit');
+        return redirect('admin/user')->with('success', 'Data Berhasil Diedit');
     }
     function destroy(User $user)
     {
         $user->delete();
-        return redirect('user')->with('danger', 'Data Berhasil Dihapus');
+        return redirect('admin/user')->with('danger', 'Data Berhasil Dihapus');
     }
 }
